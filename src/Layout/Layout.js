@@ -26,18 +26,46 @@ componentWillMount(){
         day:time.getDate(),
         week:time.getDay(),
         hour:time.getHours(),
-        Minute:time.getMinutes(),
+        minute:time.getMinutes(),
         second:time.getSeconds()
               })
-            },1000)
-         
-          }
+            },1000) 
+        }
+
+    array = length => Array.from({length}).map((v,k) => k).map(x=>x+1);
+    addPreZero = num =>{
+        if(num>=10)
+        return num;
+        return '0'+num;
+    }
       
 
     render() {
         return (
             <div className="Layout">
-                
+                <div className="header">
+                    <div className="msg">
+                    <div className="year">
+                         {this.state.year}
+                    </div>
+                    </div>
+                    <div className="Month">
+                        {this.state.Month}
+                    </div>
+                    <div className="circle">
+
+                    {this.array(12).map((x,index)=>{
+              return (
+                <div key={index} 
+                     className={`month item ${index===(this.state.month-1)?"active":""}`} 
+                     style={{transform: `rotate(${index*30-30*(this.state.month-1)}deg)`}}>
+                  {`${x} month`}
+                </div>
+              )
+            })}
+
+                    </div>
+                </div>
             </div>
         )
     }
