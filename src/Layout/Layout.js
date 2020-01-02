@@ -55,14 +55,26 @@ componentWillMount(){
                     <div className="circle">
 
                     {this.array(12).map((x,index)=>{
-              return (
-                <div key={index} 
-                     className={`month item ${index===(this.state.month-1)?"active":""}`} 
-                     style={{transform: `rotate(${index*30-30*(this.state.month-1)}deg)`}}>
-                  {`${x} month`}
-                </div>
-              )
-            })}
+                        return (
+                            <div key={index} 
+                                className={`month item ${index===(this.state.month-1)?"active":""}`} 
+                                style={{transform: `rotate(${index*30-30*(this.state.month-1)}deg)`}}>
+                            {`${x} month`}
+                            </div>
+                        )
+                   })}
+
+                   {this.array(7).map((x,index)=>{
+                       return(
+                           <div key={index}
+                                className={`week item ${index===(this.state.week-1)?"active":""}`}
+                                style={{transform: `rotate(${index*(360/21)-(360/21)*(this.state.week-1)}deg)`}}>
+                                    {`${x} week`}
+                            </div>
+                       )
+                   })
+
+                   }
 
                     </div>
                 </div>
