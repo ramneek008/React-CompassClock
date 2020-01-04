@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 
-import classes from './Layout.css';
+import './Layout.css';
 
 class Layout extends Component {
 
 state = {
-          year:2019,
+          year:2000,
           Month:'Jan',
           month:1,
           day:1,
@@ -21,6 +21,7 @@ componentWillMount(){
         let time= new Date();
 
         this.setState({
+        year:time.getFullYear(),
         Month:this.state.Months[time.getUTCMonth()],
         month:time.getMonth()+1,
         day:time.getDate(),
@@ -46,11 +47,11 @@ componentWillMount(){
                 <div className="header">
                     <div className="msg">
                     <div className="year">
-                         {this.state.year}
+                         COMPASS CLOCK
                     </div>
                     </div>
                     <div className="Month">
-                        {this.state.Month}
+                        {this.state.Month} / {this.state.year}
                     </div>
                     <div className="circle">
 
@@ -96,6 +97,14 @@ componentWillMount(){
                            <div key={index} className={`minute item ${index===(this.state.minute-1)?"active":""}`} style={{transform: `rotate(${index*(360/60)-(360/60)*(this.state.minute-1)}deg)`}}>
                                {`${x} min`}
                             </div>
+                       )
+                   })}
+
+                   {this.array(60).map((x,index)=>{
+                       return (
+                           <div key={index} className={`second item ${index===(this.state.second-1)?"active":""}`} style={{transform: `rotate(${index*(360/60)-(360/60)*(this.state.second-1)}deg)`}}>
+                               {`${x} sec`}
+                           </div>
                        )
                    })}
 

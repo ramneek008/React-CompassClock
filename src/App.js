@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import classes from './App.css';
+import './App.css';
 
 import Layout from './Layout/Layout';
 
