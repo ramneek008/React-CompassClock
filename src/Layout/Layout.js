@@ -73,8 +73,36 @@ componentWillMount(){
                             </div>
                        )
                    })
-
                    }
+
+                   {this.array(30).map((x,index)=>{
+                       return (
+                           <div key={index} className={`day item ${index===(this.state.day-1)?"active":""}`} style={{transform: `rotate(${index*12-12*(this.state.day-1)}deg)`}}>
+                               {`${x} day`}
+                           </div>
+                       )
+                   })}
+
+                   {this.array(24).map((x,index)=>{
+                       return (
+                           <div key={index} className={`hour item ${index===(this.state.hour-1)?"active":""}`} style={{transform: `rotate(${index*(360/24)-(360/24)*(this.state.hour-1)}deg)`}}>
+                               {`${x} hr`}
+                            </div>
+                       )
+                   })}
+
+                   {this.array(60).map((x,index)=> {
+                       return (
+                           <div key={index} className={`minute item ${index===(this.state.minute-1)?"active":""}`} style={{transform: `rotate(${index*(360/60)-(360/60)*(this.state.minute-1)}deg)`}}>
+                               {`${x} min`}
+                            </div>
+                       )
+                   })}
+
+
+
+
+
 
                     </div>
                 </div>

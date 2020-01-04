@@ -76,3 +76,18 @@
     width:360px;
     right:-180px;
 }
+
+.day {
+  width:480px;
+  right:-240px;
+}
+
+.hour{
+  width:600px;
+  right:-300px
+}
+
+.minute {
+  width:800px;
+  right:-400px;
+}
